@@ -6,6 +6,8 @@ using UnityEngine;
 public class ChangeColor : MonoBehaviour {
 
     private VRStandardAssets.Utils.EyeSelect m_EyeSelect;
+    [SerializeField] private AudioClip m_OnFilledClip;
+    [SerializeField] private AudioSource m_Audio;
 
     private void Start()
     {
@@ -28,6 +30,8 @@ public class ChangeColor : MonoBehaviour {
     private void NewColor()
     {
         this.gameObject.GetComponent<Renderer>().material.color = Color.green;
+        m_Audio.clip = m_OnFilledClip;
+        m_Audio.Play();
     }
 
     private void StartColor()
