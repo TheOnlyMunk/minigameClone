@@ -5,82 +5,66 @@ using UnityEngine.UI;
 
 public class HeadShake : MonoBehaviour
 {
-    float[] m_Angles;
+    public class Uniforms
+    {
+        public static readonly int _Color = Shader.PropertyToID("_Color");
+    }
 
+    [SerializeField]
+    [Tooltip("The camera  being tracked.")]
     Camera m_Camera;
 
     [SerializeField]
-    [Range(10, 100)]
-    int m_Samples;
+    [Tooltip("How fast the camera must move to initiate the nod gesture.")]
+    float m_InitiateGestureThreashold = 3f;
 
     [SerializeField]
-    float m_VarianceThreashold;
+    [Tooltip("How long may the gesture at most take.")]
+    float m_MaxGestureRecordingTime = .1f;
 
-    float m_CenterAngle;
+    [SerializeField]
+    [Tooltip("How many samples should be taken per second.")]
+    float m_SamplesPerSecond = 100f;
 
-    public GameObject target;
+    [SerializeField]
+    [Tooltip("The target to change the color (temporary and will be removed).")]
+    GameObject m_Target;
 
-    Color color;
+    MeshRenderer m_Renderer;
 
-    int index;
+    float m_PreviousAngle;
+
+    float m_CameraDeltaPitch;
+
+    bool m_GestureBeingRecorded;
 
     void Start()
     {
-        m_Camera = Camera.main;
-        m_Angles = new float[m_Samples];
+        m_Renderer = m_Target.GetComponent<MeshRenderer>();
 
-        m_CenterAngle = GetCameraPitch();
-
-        color = Color.blue;
+        m_PreviousAngle = GetCameraPitch();
+        m_GestureBeingRecorded = false;
     }
 
     void FixedUpdate()
     {
-        index = (index + 1) % m_Samples;
+        float cameraAngle = GetCameraPitch();
 
-        m_Angles[index] = GetCameraPitch();
+        // Delta pitch is how fast the camera is looking downwards.
+        m_CameraDeltaPitch = cameraAngle - m_PreviousAngle;
 
-        if (index == m_Samples - 1)
+        // If the camera looks down fast and no gesture is currently being detected
+        // Do start the gesture recording
+        if (m_CameraDeltaPitch > m_InitiateGestureThreashold && !m_GestureBeingRecorded)
         {
-            m_CenterAngle = GetCameraPitch();
-
-            CheckMovement();
+            m_GestureBeingRecorded = true;
+            StartCoroutine(DoNodGestureRecord());
         }
+
+        m_PreviousAngle = cameraAngle;
     }
 
-    void CheckMovement()
-    {
-        bool up = false;
-        bool down = false;
-
-        for (int i = 0; i < m_Samples; ++i)
-        {
-            if (m_Angles[i] < m_CenterAngle - m_VarianceThreashold && !up)
-            {
-                up = true;
-            }
-            else if (m_Angles[i] > m_CenterAngle + m_VarianceThreashold && !down)
-            {
-                down = true;
-            }
-        }
-
-        if (up && down)
-        {
-            Debug.Log("Wooo shake it baby");
-            if (color == Color.blue)
-            {
-                color = Color.red;
-            }
-            else
-            {
-                color = Color.blue;
-            }
-
-            target.GetComponent<MeshRenderer>().material.SetColor("_Color", color);
-        }
-    }
-
+    // Transform the [0; 360] angles into [-180; 180].
     float NormalizeAngle(float angle)
     {
         if (angle > 180)
@@ -95,13 +79,61 @@ public class HeadShake : MonoBehaviour
 
         if (Application.isEditor)
         {
+            // If in the editor, just grab the camera transform.
             angle = m_Camera.transform.eulerAngles.x;
         }
         else
         {
+            // If in player, VR that is.
             angle = NormalizeAngle(UnityEngine.VR.InputTracking.GetLocalRotation(UnityEngine.VR.VRNode.CenterEye).eulerAngles.x);
         }
 
-        return Input.acceleration.y;
+        // Normally one get 0 to 360 angular values.
+        // however, it's more useful to get the -180 to 180 for gesture detection
+        return NormalizeAngle(angle);
+    }
+
+    IEnumerator DoNodGestureRecord()
+    {
+        // How many samples to actually capture
+        int numberOfSamples = (int)Mathf.Ceil(m_MaxGestureRecordingTime * m_SamplesPerSecond);
+
+        // how long to wait in between sampling
+        float waitTime = m_MaxGestureRecordingTime / numberOfSamples;
+
+        // A value that gives the dominant direction of camera movement
+        // Should be robust to quick vibrant movements
+        float lowPassDelta = m_CameraDeltaPitch;
+
+        // Record camera movement
+        for (int i = 0; i < numberOfSamples; ++i)
+        {
+            // The current sample
+            float sample = m_CameraDeltaPitch;
+
+            // Smooth out the previous movement with the current
+            lowPassDelta = lowPassDelta * .33f + sample * .66f;
+
+            // If the dominant movement changes from downwards to upwards
+            // This is considered a nod/shake
+            if (lowPassDelta < 0f)
+            {
+                // Set the color indicating that the effect fired
+                m_Renderer.material.SetColor(Uniforms._Color, Color.blue);
+
+                // Let the color remain for a while
+                yield return new WaitForSeconds(2f);
+                break;
+            }
+
+            // If no nod was detected, wait for the next sample
+            yield return new WaitForSeconds(waitTime);
+        }
+
+        m_Renderer.material.SetColor(Uniforms._Color, Color.green);
+
+        // 'Unlock' the gesture recording and return
+        m_GestureBeingRecorded = false;
+        yield return null;
     }
 }
