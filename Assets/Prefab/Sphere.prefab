@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 33847403705652954}
   - component: {fileID: 135738663106893720}
   - component: {fileID: 23433298589773700}
-  - component: {fileID: 114952162938978228}
-  - component: {fileID: 114975198725962512}
-  - component: {fileID: 114755722876341814}
+  - component: {fileID: 114263252546546970}
+  - component: {fileID: 114575865707331026}
+  - component: {fileID: 114185744164803982}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1401383262176068}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114755722876341814
+--- !u!114 &114185744164803982
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -92,10 +92,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1401383262176068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa2ac6e33200d2044babd37675224b8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 66967bac7ee3ce44e9afebff19a660f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114952162938978228
+--- !u!114 &114263252546546970
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -103,10 +103,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1401383262176068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc928635ca8b50648bcec7c749a8adf2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fea6f8eea666334aaf9869ad8f7bcda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114975198725962512
+--- !u!114 &114575865707331026
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -114,11 +114,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1401383262176068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c807be55ab32724195bd97368193eb4, type: 3}
+  m_Script: {fileID: 11500000, guid: 53259f552e3492d41a2668f970098307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TimeTillSelected: 4
-  m_InteractiveItem: {fileID: 114952162938978228}
+  m_InteractiveItem: {fileID: 0}
 --- !u!135 &135738663106893720
 SphereCollider:
   m_ObjectHideFlags: 1
