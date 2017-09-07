@@ -15,23 +15,28 @@ public class CameraFollow : MonoBehaviour {
     private bool m_Follow;
     
     public float speed = 10.0f;
-    public float overShootPercentage = 10.20f;
+
+	public Transform pusher;
+	public Vector3 start;
+	public Vector3 end;
+
 
     private void OnEnable()
     {
         m_EyeSelect = this.GetComponent<VRStandardAssets.Utils.EyeSelect>();
-        m_EyeSelect.OnSelected += Selected;
+		m_EyeSelect.OnSelection += Selected;
     }
 
     private void OnDisable()
     {
-        m_EyeSelect.OnSelected -= Selected;
+		m_EyeSelect.OnSelection -= Selected;
     }
 
     private void Selected()
     {
         // Create object at the position of the Object, and set it as a child of the Camera.
         FollowMe = Instantiate(FollowMe, this.transform.position, Quaternion.identity, Parrent);
+
 
         // Start a coroutine to follow the object 
         m_Following = StartCoroutine(Following());
@@ -43,20 +48,26 @@ public class CameraFollow : MonoBehaviour {
         m_Follow = true;
         while (m_Follow)
         {
+			
+//            float step = speed * Time.deltaTime;
+//			transform.position = Vector3.MoveTowards(transform.position, FollowMe.position, step);
+
+			// Addforce stuff
+			pusher = this.gameObject.transform;
+
+			//void FixedUpdate() {
+				if ( pusher.transform.position == end){
+					pusher.GetComponent<Rigidbody>().velocity = Vector3.zero;
+					pusher.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+					pusher.GetComponent<Rigidbody>().AddForce((pusher.transform - FollowMe.transform) * 10);
+				}/*else if (pusher.transform.position == start){
+					pusher.GetComponent<Rigidbody>().velocity = Vector3.zero;
+					pusher.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+					pusher.GetComponent<Rigidbody>().AddForce((FollowMe - pusher.transform.position) * 10);
+				}*/
+			//}
 
 
-            float step = speed * Time.deltaTime;
-
-
-            Vector3 overShootPos = FollowMe.position + (FollowMe.position - transform.position) * overShootPercentage;
-
-            float deltaP = 0.001f;
-            if ((transform.position - overShootPos).magnitude < deltaP)
-            {
-                //start tweening to destinationPos rather than overShootPos. Possibly just
-                //overShootPos = FollowMe.position;
-            }
-            transform.position = Vector3.MoveTowards(transform.position, overShootPos, step);
 
             // Wait until next frame.
             yield return null;
