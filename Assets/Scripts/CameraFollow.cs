@@ -5,20 +5,32 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
-    public Transform FollowMe;
+	public Transform FollowMe;
     public Transform Parrent;
     
     private VRStandardAssets.Utils.EyeSelect m_EyeSelect;
 
     Coroutine m_Following;
 
-    private bool m_Follow;
+	public bool m_Follow;
+	private bool canDrag = true;
     
-    public float speed = 10.0f;
+    public float speed = 30.0f;
+	public float detachRange = 5.0f;
 
 	public Transform pusher;
-	public Vector3 start;
-	public Vector3 end;
+
+	public Vector3 newPos; 
+	private Vector3 endPoint;
+
+	private Rigidbody pullRigid;
+
+	void Start(){
+		// 
+		pullRigid = this.gameObject.transform.GetComponent<Rigidbody> ();
+		FollowMe = Instantiate (FollowMe, this.transform.position, Quaternion.identity);
+		pusher = this.gameObject.transform;
+	}
 
 
     private void OnEnable()
@@ -34,14 +46,17 @@ public class CameraFollow : MonoBehaviour {
 
     private void Selected()
     {
-        // Create object at the position of the Object, and set it as a child of the Camera.
-        FollowMe = Instantiate(FollowMe, this.transform.position, Quaternion.identity, Parrent);
+		if (canDrag) {
+			//FollowMe.transform.position = this.transform.position;
+			//FollowMe.transform.parent = Parrent;
+			endPoint =  pusher.transform.position;
+			// Create object at the position of the Object, and set it as a child of the Camera.
 
-
-        // Start a coroutine to follow the object 
-        m_Following = StartCoroutine(Following());
-
+			// Start a coroutine to follow the object 
+			m_Following = StartCoroutine (Following ());
+		}
     }
+		
     
     private IEnumerator Following()
     {
@@ -49,26 +64,23 @@ public class CameraFollow : MonoBehaviour {
         while (m_Follow)
         {
 			
-//            float step = speed * Time.deltaTime;
-//			transform.position = Vector3.MoveTowards(transform.position, FollowMe.position, step);
+			if (Vector3.Distance (endPoint, pusher.transform.position) < 4) {
+				newPos = new Vector3 (Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
+				newPos = Vector3.Normalize (newPos);
+				float angle = Vector3.Angle (newPos, Camera.main.transform.forward);
+				angle = (angle * Mathf.PI) / 180;
+				float hypLength = Mathf.Abs (10f / Mathf.Cos (angle));
+				endPoint = Camera.main.transform.position + (Camera.main.transform.forward.normalized * hypLength);
 
-			// Addforce stuff
-			pusher = this.gameObject.transform;
+				// Addforce stuff
+				pullRigid.velocity = Vector3.zero;
+				pullRigid.angularVelocity = Vector3.zero;
+				pullRigid.AddForce ((endPoint - pusher.transform.position) * speed);
+			}else {
+				m_Follow = false;
 
-			//void FixedUpdate() {
-				//if (pusher.transform.position == end){
-					//pusher.GetComponent<Rigidbody>().velocity = Vector3.zero;
-					//pusher.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-					//pusher.GetComponent<Rigidbody>().AddForce((pusher.transform.position - FollowMe.transform.position) * 10);
-				//}/*else if (pusher.transform.position == start){
-					pusher.GetComponent<Rigidbody>().velocity = Vector3.zero;
-					pusher.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-					pusher.GetComponent<Rigidbody>().AddForce((FollowMe.transform - pusher) * 10);
-				//}
-			//}
-
-
-
+			}
+				
             // Wait until next frame.
             yield return null;
 
@@ -77,8 +89,22 @@ public class CameraFollow : MonoBehaviour {
                 continue;
 
             // The object stopped following
-            Destroy(FollowMe);
+			//Destroy(FollowMe.gameObject);
+			//pusher.GetComponent<Rigidbody> ().velocity = Vector3.zero;
+			//pusher.GetComponent<Rigidbody> ().angularVelocity = Vector3.zero;
+			//pusher.GetComponent<Rigidbody> ().Sleep();
+			pusher.GetComponent<Rigidbody> ().useGravity = true;
+			FollowMe.transform.parent = null;
             yield break;
         }
     }
+
+
+	public IEnumerator CoolDown()
+	{
+		canDrag = false;
+		yield return new WaitForSeconds (1);
+		canDrag = true;
+	}
+
 }
