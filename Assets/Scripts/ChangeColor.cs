@@ -31,7 +31,11 @@ public class ChangeColor : MonoBehaviour {
     {
         this.gameObject.GetComponent<Renderer>().material.color = Color.green;
         m_Audio.clip = m_OnFilledClip;
-        m_Audio.Play();
+
+        if (m_Audio)
+        {
+            m_Audio.Play();
+        }
     }
 
     private void StartColor()
