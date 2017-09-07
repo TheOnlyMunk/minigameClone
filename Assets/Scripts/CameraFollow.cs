@@ -57,13 +57,13 @@ public class CameraFollow : MonoBehaviour {
 
 			//void FixedUpdate() {
 				//if (pusher.transform.position == end){
-					pusher.GetComponent<Rigidbody>().velocity = Vector3.zero;
-					pusher.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-					pusher.GetComponent<Rigidbody>().AddForce((pusher.transform.position - FollowMe.transform.position) * 10);
+					//pusher.GetComponent<Rigidbody>().velocity = Vector3.zero;
+					//pusher.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+					//pusher.GetComponent<Rigidbody>().AddForce((pusher.transform.position - FollowMe.transform.position) * 10);
 				//}/*else if (pusher.transform.position == start){
 					pusher.GetComponent<Rigidbody>().velocity = Vector3.zero;
 					pusher.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-					pusher.GetComponent<Rigidbody>().AddForce((FollowMe - pusher.transform.position) * 10);
+					pusher.GetComponent<Rigidbody>().AddForce((FollowMe.transform - pusher) * 10);
 				//}
 			//}
 
