@@ -56,15 +56,15 @@ public class CameraFollow : MonoBehaviour {
 			pusher = this.gameObject.transform;
 
 			//void FixedUpdate() {
-				if ( pusher.transform.position == end){
+				//if (pusher.transform.position == end){
 					pusher.GetComponent<Rigidbody>().velocity = Vector3.zero;
 					pusher.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-					pusher.GetComponent<Rigidbody>().AddForce((pusher.transform - FollowMe.transform) * 10);
-				}/*else if (pusher.transform.position == start){
+					pusher.GetComponent<Rigidbody>().AddForce((pusher.transform.position - FollowMe.transform.position) * 10);
+				//}/*else if (pusher.transform.position == start){
 					pusher.GetComponent<Rigidbody>().velocity = Vector3.zero;
 					pusher.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 					pusher.GetComponent<Rigidbody>().AddForce((FollowMe - pusher.transform.position) * 10);
-				}*/
+				//}
 			//}
 
 
