@@ -5,9 +5,13 @@ using UnityEngine;
 public class Manager : MonoBehaviour {
     [SerializeField] private GameObject cam;
 
+	void Awake(){
+		Instantiate(cam);
+	}
+
+
 	// Use this for initialization
 	void Start () {
-        Instantiate(cam);
     }
 	
 	// Update is called once per frame
