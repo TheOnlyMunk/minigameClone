@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1817287820469788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.75, y: 0, z: 0}
+  m_LocalPosition: {x: -4.75, y: 0, z: 14.2045}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -138,12 +138,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Follow: 0
-  speed: 10
-  detachRange: 8
-  distanceFromUser: 10
+  rotateTowardsPlayer: 0
+  rotationSpeed: 10
+  followSpeed: 20
+  detachRange: 6
+  distanceFromPlayer: 10
   shakeHeadCooldown: 1
-  pullObject: {fileID: 0}
-  newPos: {x: 0, y: 0, z: 0}
+  maxHeight: 3
+  m_camera: {fileID: 0}
+  testObject: {fileID: 0}
+  followObject: {fileID: 0}
+  camDir: {x: 0, y: 0, z: 0}
 --- !u!114 &114692945691405440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 0}
   m_InitiateGestureThreashold: 3
+  m_MinimumShakeSize: 4
   m_MaxGestureRecordingTime: 0.1
   m_SamplesPerSecond: 100
   m_Renderer: {fileID: 0}

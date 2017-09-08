@@ -20,17 +20,20 @@ public class CameraFollow : MonoBehaviour {
 	public float shakeHeadCooldown = 1f;
 	public float maxHeight = 10f;
 
+
+	[SerializeField] private Transform m_camera;
 	public Transform followObject;
 	private Rigidbody followRigid;
 
-	public Vector3 newPos; 
 	private Vector3 endPoint;
 
 	void Start(){
+		m_camera = Camera.main.transform;
 		// assign rigidbody and gameobject of the follow object
 		followRigid = this.gameObject.transform.GetComponent<Rigidbody> ();
 		followObject = this.gameObject.transform;
 	}
+		
 
     private void OnEnable()
     {
@@ -57,6 +60,7 @@ public class CameraFollow : MonoBehaviour {
 		}
     }
 		
+		
     
     private IEnumerator Following()
     {
@@ -65,15 +69,17 @@ public class CameraFollow : MonoBehaviour {
         {
 			// If the distance between the follow object and the endpoint is greater than detach range, it will be dropped
 			if (Vector3.Distance (endPoint, followObject.transform.position) < detachRange) {
-				
+
+				Vector3 camLookDirVec = m_camera.forward;
+
 				// Calculate the position of the object
-				newPos = new Vector3 (Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
-				newPos = Vector3.Normalize (newPos);
-				float angle = Vector3.Angle (newPos, Camera.main.transform.forward);
+				Vector3 camDir = new Vector3 (camLookDirVec.x, 0, camLookDirVec.z);
+				camDir = Vector3.Normalize (camDir);
+				float angle = Vector3.Angle (camDir, camLookDirVec);
 				//translate degrees to radians
 				angle = (angle * Mathf.PI) / 180;
 				float hypLength = Mathf.Abs (distanceFromPlayer / Mathf.Cos (angle));
-				endPoint = Camera.main.transform.position + (Camera.main.transform.forward.normalized * hypLength);
+				endPoint = m_camera.transform.position + (camLookDirVec.normalized * hypLength);
 
 				// if the endpoint if bigger than maxheight, the y coordinate of endpoint is locked at maxheight
 				if (endPoint.y > maxHeight) {
@@ -82,7 +88,7 @@ public class CameraFollow : MonoBehaviour {
 
 				if (rotateTowardsPlayer) {
 					float step = rotationSpeed * Time.deltaTime;
-					transform.rotation = Quaternion.RotateTowards(transform.rotation, Camera.main.transform.rotation, step);
+					transform.rotation = Quaternion.RotateTowards(transform.rotation, m_camera.transform.rotation, step);
 				}
 
 				// Addforce stuff
@@ -96,7 +102,7 @@ public class CameraFollow : MonoBehaviour {
 			}
 				
             // Wait until next frame.
-            yield return null;
+			yield return new WaitForFixedUpdate();
 
             // If the object should still be following.
             if (m_Follow)
