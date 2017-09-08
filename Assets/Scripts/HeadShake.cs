@@ -32,9 +32,10 @@ public class HeadShake : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The target to change the color (temporary and will be removed).")]
-    GameObject m_Target;
+    //GameObject m_Target;
 
     MeshRenderer m_Renderer;
+	private CameraFollow CameraFollowScript;
 
     float m_PreviousAngle;
 
@@ -44,7 +45,8 @@ public class HeadShake : MonoBehaviour
 
     void Start()
     {
-        m_Renderer = m_Target.GetComponent<MeshRenderer>();
+		CameraFollowScript = GetComponent<CameraFollow> ();
+        //m_Renderer = m_Target.GetComponent<MeshRenderer>();
 
         m_PreviousAngle = GetCameraPitch();
         m_GestureBeingRecorded = false;
@@ -140,8 +142,11 @@ public class HeadShake : MonoBehaviour
             if (directionFlipped && (upperMeasure - lowerMeasure) > m_MinimumShakeSize)
             {
                 // Set the color indicating that the effect fired
-                m_Renderer.material.SetColor(Uniforms._Color, Color.blue);
+                //m_Renderer.material.SetColor(Uniforms._Color, Color.blue);
 
+				// drops the object dragged by the camerafollowScript
+				CameraFollowScript.m_Follow = false;
+				CameraFollowScript.StartCoroutine ("CoolDown");
                 // Let the color remain for a while
                 yield return new WaitForSeconds(2f);
                 break;
@@ -151,7 +156,7 @@ public class HeadShake : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
         }
 
-        m_Renderer.material.SetColor(Uniforms._Color, Color.green);
+        //m_Renderer.material.SetColor(Uniforms._Color, Color.green);
 
         // 'Unlock' the gesture recording and return
         m_GestureBeingRecorded = false;

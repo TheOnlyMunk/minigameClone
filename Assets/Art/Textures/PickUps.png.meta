@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: dbfb6587c7ba4ec4998a7d29639d6a93
-timeCreated: 1446809077
-licenseType: Store
+guid: 36a0a513e4c5d00448bddc4b846cd3bb
+timeCreated: 1504877078
+licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -26,7 +26,7 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
