@@ -11,7 +11,7 @@ public class ActivationTrigger : MonoBehaviour {
 	void OnEnable()
 	{
 		m_EyeSelect = this.GetComponent<VRStandardAssets.Utils.EyeSelect>();
-		m_EyeSelect.OnSelection += DisplayObject;
+		m_EyeSelect.OnSelected += DisplayObject;
 	}
 
 	void DisplayObject(){
