@@ -45,6 +45,7 @@ public class HeadShake : MonoBehaviour
 
     void Start()
     {
+		m_Camera = Camera.main;
 		CameraFollowScript = GetComponent<CameraFollow> ();
         //m_Renderer = m_Target.GetComponent<MeshRenderer>();
 
