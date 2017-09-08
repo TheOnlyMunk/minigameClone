@@ -19,6 +19,10 @@ public class HeadShake : MonoBehaviour
     float m_InitiateGestureThreashold = 3f;
 
     [SerializeField]
+    [Tooltip("How much must the head move before a gesture is triggered.")]
+    float m_MinimumShakeSize = 4f;
+
+    [SerializeField]
     [Tooltip("How long may the gesture at most take.")]
     float m_MaxGestureRecordingTime = .1f;
 
@@ -105,18 +109,35 @@ public class HeadShake : MonoBehaviour
         // Should be robust to quick vibrant movements
         float lowPassDelta = m_CameraDeltaPitch;
 
+        float upperMeasure = GetCameraPitch();
+        float lowerMeasure = upperMeasure;
+
+        bool directionFlipped = false;
+
         // Record camera movement
         for (int i = 0; i < numberOfSamples; ++i)
         {
             // The current sample
             float sample = m_CameraDeltaPitch;
 
+            float pitch = GetCameraPitch();
+
+            upperMeasure = Mathf.Max(upperMeasure, pitch);
+            lowerMeasure = Mathf.Min(lowerMeasure, pitch);
+
             // Smooth out the previous movement with the current
             lowPassDelta = lowPassDelta * .33f + sample * .66f;
 
             // If the dominant movement changes from downwards to upwards
-            // This is considered a nod/shake
+            // Note that the direction flipped
             if (lowPassDelta < 0f)
+            {
+                directionFlipped = true;
+            }
+
+            // If the direction has flipped and the head has moved enough
+            // register shake
+            if (directionFlipped && (upperMeasure - lowerMeasure) > m_MinimumShakeSize)
             {
                 // Set the color indicating that the effect fired
                 m_Renderer.material.SetColor(Uniforms._Color, Color.blue);
