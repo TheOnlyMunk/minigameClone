@@ -19,7 +19,9 @@
         static const float pi = 3.14159265359;
 
         sampler2D _MainTex;
-        sampler2D _MainTex_TexelSize;
+        float4 _MainTex_TexelSize;
+
+        sampler2D _Edges;
 
         struct Input {
             float2 uv_MainTex;
@@ -38,19 +40,21 @@
             float range = sin(noiseValue) * .2;
 
             float2 offset = float2(cos(angle), sin(angle)) * range;
-            return coord + offset * _Intensity;
+            return coord + offset * multiplier * _Intensity;
         }
 
-        void surf (Input IN, inout SurfaceOutputStandard o) {
-
+        void surf (Input IN, inout SurfaceOutputStandard o)
+        {
+            float2 texcoord = IN.uv_MainTex;
             float2 coord = Liquify(IN.uv_MainTex, 1.);
 
-            fixed4 c = tex2D (_MainTex, coord) * _Color;
-            o.Albedo = c.rgb;
+            fixed4 normalColor = tex2D(_MainTex, texcoord) * _Color;
+            fixed4 warpedColor = tex2D(_MainTex, coord) * _Color;
+            o.Albedo = lerp(0., warpedColor.rgb, warpedColor.a);
 
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
-            o.Alpha = c.a;
+            o.Alpha = 1.;
         }
         ENDCG
     }
