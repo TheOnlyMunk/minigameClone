@@ -10,6 +10,16 @@ public class HeadShake : MonoBehaviour
         public static readonly int _Color = Shader.PropertyToID("_Color");
     }
 
+    public enum Direction
+    {
+        Horizontal = 0,
+        Vertical = 1
+    }
+
+    [SerializeField]
+    [Tooltip("The direction in which the shake should be detected.")]
+    Direction m_ShakeDirection;
+
     [SerializeField]
     [Tooltip("The camera  being tracked.")]
     Camera m_Camera;
@@ -30,11 +40,9 @@ public class HeadShake : MonoBehaviour
     [Tooltip("How many samples should be taken per second.")]
     float m_SamplesPerSecond = 100f;
 
-    [SerializeField]
-    [Tooltip("The target to change the color (temporary and will be removed).")]
-    //GameObject m_Target;
-
     MeshRenderer m_Renderer;
+    
+    private CameraFollow CameraFollowScript;
 
     float m_PreviousAngle;
 
@@ -44,6 +52,7 @@ public class HeadShake : MonoBehaviour
 
     void Start()
     {
+
 		m_Camera = Camera.main;
         //m_Renderer = m_Target.GetComponent<MeshRenderer>();
 
@@ -85,12 +94,12 @@ public class HeadShake : MonoBehaviour
         if (Application.isEditor)
         {
             // If in the editor, just grab the camera transform.
-            angle = m_Camera.transform.eulerAngles.x;
+            angle = m_Camera.transform.rotation.eulerAngles[(int)m_ShakeDirection];
         }
         else
         {
             // If in player, VR that is.
-            angle = NormalizeAngle(UnityEngine.VR.InputTracking.GetLocalRotation(UnityEngine.VR.VRNode.CenterEye).eulerAngles.x);
+            angle = NormalizeAngle(UnityEngine.VR.InputTracking.GetLocalRotation(UnityEngine.VR.VRNode.CenterEye).eulerAngles[(int)m_ShakeDirection]);
         }
 
         // Normally one get 0 to 360 angular values.
