@@ -53,19 +53,22 @@ public class PlaySound : MonoBehaviour
 
     private void OnDisable()
     {
-        switch (ActivateWithThis)
+        if (this.gameObject)
         {
-            case Activation.Looking:
-                m_EyeSelect = this.GetComponent<VRStandardAssets.Utils.EyeSelect>();
-                if (InitialLook) m_EyeSelect.OnSelection -= PlayAudio;
-                if (SelectedLook) m_EyeSelect.OnSelected -= PlayAudio;
-                break;
-            case Activation.EnterArea:
-                TriggerDetection.GetComponent<EventTriggerDetection>().OnTriggerDetection -= PlayAudio;
-                break;
-            case Activation.DropArea:
-                TriggerDetection.GetComponent<EventTriggerDetection>().OnTriggerDetection -= PlayAudio;
-                break;
+            switch (ActivateWithThis)
+            {
+                case Activation.Looking:
+                    m_EyeSelect = this.GetComponent<VRStandardAssets.Utils.EyeSelect>();
+                    if (InitialLook) m_EyeSelect.OnSelection -= PlayAudio;
+                    if (SelectedLook) m_EyeSelect.OnSelected -= PlayAudio;
+                    break;
+                case Activation.EnterArea:
+                    TriggerDetection.GetComponent<EventTriggerDetection>().OnTriggerDetection -= PlayAudio;
+                    break;
+                case Activation.DropArea:
+                    TriggerDetection.GetComponent<EventTriggerDetection>().OnTriggerDetection -= PlayAudio;
+                    break;
+            }
         }
     }
 
