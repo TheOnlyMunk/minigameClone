@@ -10,6 +10,7 @@ namespace VRStandardAssets.Utils
     {
         public event Action OnSelected;
         public event Action OnSelection;
+		public event Action OnExit;
 
         public float TimeTillSelected = 4.0f;
 
@@ -43,6 +44,9 @@ namespace VRStandardAssets.Utils
             // If the coroutine has been started (and thus we have a reference to it) stop it.
             if (m_Selected != null)
                 StopCoroutine(m_Selected);
+
+			if (OnExit != null)
+				OnExit ();
         }
 
         private void HandleOver()
