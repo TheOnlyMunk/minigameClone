@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Camera: {fileID: 4104535388900398}
   m_ExclusionLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_Reticle: {fileID: 0}
   m_VrInput: {fileID: 0}
   m_ShowDebugRay: 0
