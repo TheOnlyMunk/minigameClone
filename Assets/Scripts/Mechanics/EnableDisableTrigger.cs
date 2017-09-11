@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animation))]
 [RequireComponent(typeof(VRStandardAssets.Utils.EyeSelect))]
-public class AnimationTrigger : MonoBehaviour {
+public class EnableDisableTrigger : MonoBehaviour {
 
     private VRStandardAssets.Utils.EyeSelect m_EyeSelect;
 
@@ -15,41 +14,43 @@ public class AnimationTrigger : MonoBehaviour {
     [Tooltip("Choose the Gameobject for triggering the events (Required for EnterArea & DropArea)")]
     [SerializeField]
     private GameObject TriggerDetection;
-
-    [Header("Triggering")]
-    private AnimationClip clip1;
-    private AnimationClip clip2;
-
     [Header("Looking")]
-    [Tooltip("Activate animation on initial look at object")]
+    [Tooltip("Enabk on initial look at object")]
     [SerializeField]
     private bool InitialLook;
-    [Tooltip("Activate animation once the object have been looked at for some time")]
+    [Tooltip("Activate sound once the object have been looked at for some time")]
     [SerializeField]
     private bool SelectedLook;
 
-    void OnEnable()
-	{
+    [Header("Choose Object")]
+    [SerializeField]
+    private GameObject ObjectToEnableOrDisable;
+    [SerializeField]
+    private State state;
+    [SerializeField] public enum State { Enable, Disable};
+
+    private void OnEnable()
+    {
+
         /* Creating the connections to the required scrips for each waay of 
         * triggering objects either by looking at, or the box collider.*/
         switch (ActivateWithThis)
         {
             case Activation.Looking:
                 m_EyeSelect = this.GetComponent<VRStandardAssets.Utils.EyeSelect>();
-                if(InitialLook)     m_EyeSelect.OnSelection += PlayAnimation;
-                if(SelectedLook)    m_EyeSelect.OnSelected += PlayAnimation;
+                if(InitialLook)     m_EyeSelect.OnSelection += EnableDisable;
+                if(SelectedLook)    m_EyeSelect.OnSelected += EnableDisable;
                 break;
             case Activation.EnterArea:
-                TriggerDetection.GetComponent<EventTriggerDetection>().OnTriggerDetection += PlayAnimation;
+                TriggerDetection.GetComponent<EventTriggerDetection>().OnTriggerDetection += EnableDisable;
                 TriggerDetection.GetComponent<EventTriggerDetection>().Targets.Add(this.gameObject, true);
                 break;
             case Activation.DropArea:
-                TriggerDetection.GetComponent<EventTriggerDetection>().OnTriggerDetection += PlayAnimation;
+                TriggerDetection.GetComponent<EventTriggerDetection>().OnTriggerDetection += EnableDisable;
                 TriggerDetection.GetComponent<EventTriggerDetection>().Targets.Add(this.gameObject, true);
                 break;
         }
-	}
-
+    }
 
     private void OnDisable()
     {
@@ -57,23 +58,31 @@ public class AnimationTrigger : MonoBehaviour {
         {
             case Activation.Looking:
                 m_EyeSelect = this.GetComponent<VRStandardAssets.Utils.EyeSelect>();
-                if (InitialLook) m_EyeSelect.OnSelection -= PlayAnimation;
-                if (SelectedLook) m_EyeSelect.OnSelected -= PlayAnimation;
+                if (InitialLook) m_EyeSelect.OnSelection -= EnableDisable;
+                if (SelectedLook) m_EyeSelect.OnSelected -= EnableDisable;
                 break;
             case Activation.EnterArea:
-                TriggerDetection.GetComponent<EventTriggerDetection>().OnTriggerDetection -= PlayAnimation;
+                TriggerDetection.GetComponent<EventTriggerDetection>().OnTriggerDetection -= EnableDisable;
                 break;
             case Activation.DropArea:
-                TriggerDetection.GetComponent<EventTriggerDetection>().OnTriggerDetection -= PlayAnimation;
+                TriggerDetection.GetComponent<EventTriggerDetection>().OnTriggerDetection -= EnableDisable;
                 break;
         }
     }
 
-    void PlayAnimation(){
+    private void EnableDisable()
+    {
+        switch (state)
+        {
+            case State.Disable:
+                ObjectToEnableOrDisable.SetActive(false);
+                break;
 
-        gameObject.GetComponent<Animation>().clip = clip1;
-        gameObject.GetComponent<Animation>().Play();
-
-	}
+            case State.Enable:
+                ObjectToEnableOrDisable.SetActive(true);
+                break;
+        }
+    }
 
 }
+
