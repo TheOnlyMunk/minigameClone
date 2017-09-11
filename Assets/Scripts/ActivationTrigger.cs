@@ -31,21 +31,21 @@ public class ActivationTrigger : MonoBehaviour {
 			StopCoroutine (lastRoutine);
 		}
 		// check if childs are active. If not, then they are activated
-		if (!transform.GetChild (0).gameObject.activeSelf) {
+		/*if (!transform.GetChild (0).gameObject.activeSelf) {
 			foreach (Transform child in transform)
 			{
 				child.gameObject.SetActive(true);
 			}
-		}
+		}*/
 		// start coroutine to fade-in the child objects 
 		StartCoroutine(FadeToFullAlpha(fadeInDuration, transform.GetChild(0).GetComponent<TextMesh>()));
 	}
 
 	void DisableObject(){
 		// check if childs are active. If they are, then WaitAndDisapear is executed
-		if (transform.GetChild (0).gameObject.activeSelf) {
+		//if (transform.GetChild (0).gameObject.activeSelf) {
 			lastRoutine = StartCoroutine(WaitAndDisapear(fadeInDuration, waitBeforeDisapear, transform.GetChild(0).GetComponent<TextMesh>()));
-		}
+		//}
 	}
 		
 
@@ -91,10 +91,10 @@ public class ActivationTrigger : MonoBehaviour {
 			yield return null;
 		}
 		// loop through children and disable them
-		foreach (Transform child in transform)
+		/*foreach (Transform child in transform)
 		{
 			child.gameObject.SetActive(false);
-		}
+		}*/
 
 	}
 
