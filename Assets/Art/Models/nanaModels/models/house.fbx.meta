@@ -1,22 +1,39 @@
 fileFormatVersion: 2
-guid: d67fbea4ebda53043a5322b5d7a0fa73
-timeCreated: 1505147452
+guid: 720662f4aff9e6d46b6881fab1b0ac6f
+timeCreated: 1505145293
 licenseType: Pro
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: postBox 1
-    100004: postBoxFlap
-    400000: //RootNode
-    400002: postBox 1
-    400004: postBoxFlap
-    2300000: postBox 1
-    2300002: postBoxFlap
-    3300000: postBox 1
-    3300002: postBoxFlap
-    4300000: postBoxFlap
-    4300002: postBox
+    100000: doorWall
+    100002: //RootNode
+    100004: house 1
+    100006: stairs
+    100008: window
+    100010: window1
+    100012: windowWall
+    400000: doorWall
+    400002: //RootNode
+    400004: house 1
+    400006: stairs
+    400008: window
+    400010: window1
+    400012: windowWall
+    2300000: doorWall
+    2300002: stairs
+    2300004: window
+    2300006: window1
+    2300008: windowWall
+    3300000: doorWall
+    3300002: stairs
+    3300004: window
+    3300006: window1
+    3300008: windowWall
+    4300000: window
+    4300002: windowWall
+    4300004: doorWall
+    4300006: stairs
+    4300008: window1
     9500000: //RootNode
   materials:
     importMaterials: 1

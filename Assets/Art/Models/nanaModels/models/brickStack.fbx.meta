@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: d67fbea4ebda53043a5322b5d7a0fa73
-timeCreated: 1505147452
+guid: 40217456c118be443b93d0194a633f89
+timeCreated: 1505148392
 licenseType: Pro
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
-    100002: postBox 1
-    100004: postBoxFlap
+    100002: polySurface1
+    100004: polySurface2
     400000: //RootNode
-    400002: postBox 1
-    400004: postBoxFlap
-    2300000: postBox 1
-    2300002: postBoxFlap
-    3300000: postBox 1
-    3300002: postBoxFlap
-    4300000: postBoxFlap
-    4300002: postBox
+    400002: polySurface1
+    400004: polySurface2
+    2300000: polySurface1
+    2300002: polySurface2
+    3300000: polySurface1
+    3300002: polySurface2
+    4300000: polySurface1
+    4300002: polySurface2
     9500000: //RootNode
   materials:
     importMaterials: 1
