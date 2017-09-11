@@ -35,28 +35,32 @@
             return o;
         }
 
-        float4 GaussianBlurFragment5tap(Varyings i) : SV_Target
+        float4 SDFPrepare(Varyings i) : SV_Target
         {
-            float2 offset = _MainTex_TexelSize.xy * _BlurDirection;
+            float4 tex = tex2D(_MainTex, i.texcoord);
+            float isEdge = step(.5, tex.r);
+            tex.a = isEdge;
+            return tex;
+        }
 
-            float4 blurred = 0.;
+        float4 SDFIterate(Varyings i) : SV_Target
+        {
+            float4 tex = tex2D(_MainTex, i.texcoord);
 
-            blurred += tex2D(_MainTex, i.texcoord + offset * -4.) * .091638;
-            blurred += tex2D(_MainTex, i.texcoord + offset *  4.) * .091638;
+            float4 offset = _MainTex_TexelSize.xyxy * float4(1., 1., -1., 0.);
+            
+            float4 up = tex2D(_MainTex, i.texcoord + offset.wy);
+            float4 upleft = tex2D(_MainTex, i.texcoord + offset.yz);
+            float4 upright = tex2D(_MainTex, i.texcoord + offset.yx);
+            float4 down = tex2D(_MainTex, i.texcoord - offset.wy);
+            float4 downleft = tex2D(_MainTex, i.texcoord - offset.xy);
+            float4 downright = tex2D(_MainTex, i.texcoord - offset.zy);
+            float4 left = tex2D(_MainTex, i.texcoord - offset.xw);
+            float4 right = tex2D(_MainTex, i.texcoord + offset.xw);
 
-            blurred += tex2D(_MainTex, i.texcoord + offset * -3.) * .105358;
-            blurred += tex2D(_MainTex, i.texcoord + offset *  3.) * .105358;
-
-            blurred += tex2D(_MainTex, i.texcoord + offset * -2.) * .116402;
-            blurred += tex2D(_MainTex, i.texcoord + offset *  2.) * .116402;
-
-            blurred += tex2D(_MainTex, i.texcoord + offset * -1.) * .123572;
-            blurred += tex2D(_MainTex, i.texcoord + offset *  1.) * .123572;
-
-            float4 centerTap = tex2D(_MainTex, i.texcoord);
-            blurred += centerTap * 0.126063;
-
-            return max(blurred, centerTap);
+            float tapped = step(.5, tex.a);
+            tex.a = tapped;
+            return tex;
         }
 
         float2 Gradient(float up, float down, float left, float right)
@@ -97,7 +101,15 @@
         {
             CGPROGRAM
             #pragma vertex VertDefault
-            #pragma fragment GaussianBlurFragment5tap
+            #pragma fragment SDFPrepare
+            ENDCG
+        }
+
+        Pass // 2
+        {
+            CGPROGRAM
+            #pragma vertex VertDefault
+            #pragma fragment SDFIterate
             ENDCG
         }
     }

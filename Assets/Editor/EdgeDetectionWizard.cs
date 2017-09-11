@@ -86,13 +86,13 @@ public class EdgeDetectionWizard : ScriptableWizard
 
         Graphics.Blit(source, RenderTexture.active, material, 0);
 
-        for (int i = 0; i < 32; ++i)
-        {
-            material.SetVector(Uniforms._BlurDirection, new Vector4(1f, 0f, 0f, 0f));
-            Graphics.Blit(temporary, temporary2, material, 1);
+        Graphics.Blit(temporary, temporary2, material, 1);
 
-            material.SetVector(Uniforms._BlurDirection, new Vector4(0f, 1f, 0f, 0f));
-            Graphics.Blit(temporary2, temporary, material, 1);
+        int iterations = Mathf.Max(source.width, source.height);
+        for (int i = 0; i < iterations; ++i)
+        {
+            Graphics.Blit(temporary2, temporary, material, 2);
+            Graphics.Blit(temporary, temporary2, material, 2);
         }
  
         Texture2D output = new Texture2D(source.width, source.height, TextureFormat.ARGB32, source.mipmapCount > 0);
