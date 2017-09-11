@@ -41,6 +41,7 @@ public class HeadShake : MonoBehaviour
     float m_SamplesPerSecond = 100f;
 
     MeshRenderer m_Renderer;
+    
     private CameraFollow CameraFollowScript;
 
     float m_PreviousAngle;
@@ -51,8 +52,8 @@ public class HeadShake : MonoBehaviour
 
     void Start()
     {
-        m_Camera = Camera.main;
-        CameraFollowScript = GetComponent<CameraFollow> ();
+
+		m_Camera = Camera.main;
         //m_Renderer = m_Target.GetComponent<MeshRenderer>();
 
         m_PreviousAngle = GetCameraPitch();
@@ -152,8 +153,7 @@ public class HeadShake : MonoBehaviour
                 //m_Renderer.material.SetColor(Uniforms._Color, Color.blue);
 
 				// drops the object dragged by the camerafollowScript
-				CameraFollowScript.m_Follow = false;
-				CameraFollowScript.StartCoroutine ("CoolDown");
+				CameraFollow.Deselect ();
                 // Let the color remain for a while
                 yield return new WaitForSeconds(2f);
                 break;
