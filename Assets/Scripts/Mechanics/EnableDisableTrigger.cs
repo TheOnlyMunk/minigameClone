@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(VRStandardAssets.Utils.EyeSelect))]
 public class EnableDisableTrigger : MonoBehaviour {
 
+    // GitHub check, doest it come back
+
     private VRStandardAssets.Utils.EyeSelect m_EyeSelect;
 
     enum Activation { Looking, EnterArea, DropArea };
