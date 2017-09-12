@@ -4980,6 +4980,11 @@ Prefab:
       propertyPath: m_Name
       value: SpiderTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 82342100906285076, guid: f89f546189c35224fa72fab53d542d26,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f89f546189c35224fa72fab53d542d26, type: 2}
   m_IsPrefabParent: 0

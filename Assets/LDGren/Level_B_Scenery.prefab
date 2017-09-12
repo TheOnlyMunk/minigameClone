@@ -2804,7 +2804,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2905,7 +2905,8 @@ AudioSource:
   m_GameObject: {fileID: 1991093295226946}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243680274518622510, guid: 489b81f811ef4294a983f9121ca73a9f,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: a33d46cbeee540f479409f2d938a9d54, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2964,7 +2965,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2985,9 +2986,10 @@ AudioSource:
   m_GameObject: {fileID: 1413638881254292}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243493179854023134, guid: 489b81f811ef4294a983f9121ca73a9f,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3044,7 +3046,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -3065,7 +3067,8 @@ AudioSource:
   m_GameObject: {fileID: 1364278727590708}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243950793047455310, guid: 489b81f811ef4294a983f9121ca73a9f,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 5d443e8b82966414eb6ff1991d7ad523, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3124,7 +3127,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -3145,7 +3148,8 @@ AudioSource:
   m_GameObject: {fileID: 1322081638821246}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243854227239393360, guid: 489b81f811ef4294a983f9121ca73a9f,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: a1e2bb558cc39a44fb16a84ec0835eee, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3204,7 +3208,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -3385,7 +3389,8 @@ AudioSource:
   m_GameObject: {fileID: 1198804754602830}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243733975743642138, guid: 489b81f811ef4294a983f9121ca73a9f,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 1c4775d3e315a654fa4d443a283e72eb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3444,7 +3449,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -3465,7 +3470,8 @@ AudioSource:
   m_GameObject: {fileID: 1230509093191398}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243588505882630474, guid: 489b81f811ef4294a983f9121ca73a9f,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 3eb217f6ec61ea8418c4b67085f5f0b9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3524,7 +3530,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -4393,7 +4399,7 @@ MonoBehaviour:
   detachRange: 5
   distanceFromPlayer: 3.5
   maxHeight: 10
-  pickUpSound: {fileID: 0}
+  pickUpSound: {fileID: 8300000, guid: 409466f120dd736449955ba4314c749f, type: 3}
   m_camera: {fileID: 0}
   followObject: {fileID: 0}
 --- !u!114 &114909104439642540
