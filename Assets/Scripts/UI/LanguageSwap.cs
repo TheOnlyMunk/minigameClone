@@ -8,10 +8,10 @@ public class LanguageSwap : MonoBehaviour
     CustomSelectionSlider m_SelectionSlider;
 
     [SerializeField]
-    GameObject m_SwapSource;
+    LanguageManager m_LanguageManager;
 
     [SerializeField]
-    GameObject m_SwapTarget;
+    LanguageManager.Language m_Language;
 
     void OnEnable()
     {
@@ -27,7 +27,6 @@ public class LanguageSwap : MonoBehaviour
 
     void Swap()
     {
-        m_SwapTarget.SetActive(true);
-        m_SwapSource.SetActive(false);
+        m_LanguageManager.SetLanguage(m_Language);
     }
 }
