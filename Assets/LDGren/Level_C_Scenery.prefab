@@ -190,6 +190,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4928584527968188}
+  - component: {fileID: 114047369507930982}
   m_Layer: 0
   m_Name: "Text C - 11 (gr\xE5 og...)"
   m_TagString: Untagged
@@ -498,6 +499,7 @@ GameObject:
   - component: {fileID: 23048557164616310}
   - component: {fileID: 102612275604781824}
   - component: {fileID: 82764317956155866}
+  - component: {fileID: 114272027085242858}
   m_Layer: 0
   m_Name: Text C - 9 (sommerhus er...)
   m_TagString: Untagged
@@ -896,6 +898,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4084334149075962}
+  - component: {fileID: 114495367413740844}
   m_Layer: 0
   m_Name: Text C - 8 (bag min...)
   m_TagString: Untagged
@@ -931,6 +934,7 @@ GameObject:
   - component: {fileID: 23944149477378454}
   - component: {fileID: 102211661183068336}
   - component: {fileID: 82314789098897540}
+  - component: {fileID: 114673411495068290}
   m_Layer: 0
   m_Name: Text C - 10
   m_TagString: Untagged
@@ -3382,7 +3386,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 373dc7447e445054e899abfbbb715140, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3d224f8b21e512c4a9d6cbc9a4ea96f2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3462,7 +3466,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 373dc7447e445054e899abfbbb715140, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3d224f8b21e512c4a9d6cbc9a4ea96f2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3542,7 +3546,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 373dc7447e445054e899abfbbb715140, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3d224f8b21e512c4a9d6cbc9a4ea96f2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3756,6 +3760,18 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190335
+--- !u!114 &114047369507930982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1264792034865184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e40a95b4ed9c948923fc57cce2e98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Manager: {fileID: 0}
 --- !u!114 &114106422064033640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3792,6 +3808,18 @@ MonoBehaviour:
   m_MinimumShakeSize: 4
   m_MaxGestureRecordingTime: 0.1
   m_SamplesPerSecond: 100
+--- !u!114 &114272027085242858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1590231568182988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e40a95b4ed9c948923fc57cce2e98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Manager: {fileID: 0}
 --- !u!114 &114469520463041828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3805,6 +3833,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeTillSelected: 4
   m_InteractiveItem: {fileID: 0}
+--- !u!114 &114495367413740844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962557431524818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e40a95b4ed9c948923fc57cce2e98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Manager: {fileID: 0}
 --- !u!114 &114568126894873340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3857,6 +3897,18 @@ MonoBehaviour:
   state: 0
   Delay: 0
   DisableAfterUse: 0
+--- !u!114 &114673411495068290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1972744638122210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e40a95b4ed9c948923fc57cce2e98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Manager: {fileID: 0}
 --- !u!114 &114712639373675848
 MonoBehaviour:
   m_ObjectHideFlags: 1
