@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour {
     [SerializeField] private GameObject cam;
+	[SerializeField] public GameObject pickedUpObject;
 
 	void Awake(){
 		Instantiate(cam);
