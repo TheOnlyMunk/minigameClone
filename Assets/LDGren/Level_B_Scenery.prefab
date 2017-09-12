@@ -68,6 +68,7 @@ GameObject:
   - component: {fileID: 114834401958819786}
   - component: {fileID: 114404646282706030}
   - component: {fileID: 114845288336709486}
+  - component: {fileID: 114178598925398612}
   m_Layer: 0
   m_Name: sink2
   m_TagString: Untagged
@@ -134,8 +135,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4713203059350876}
   - component: {fileID: 33790926258736120}
-  - component: {fileID: 64767749655667252}
   - component: {fileID: 23108977243426162}
+  - component: {fileID: 65112727465202906}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -399,6 +400,7 @@ GameObject:
   - component: {fileID: 114227585003310030}
   - component: {fileID: 114972954494543152}
   - component: {fileID: 114110583066646860}
+  - component: {fileID: 114059175264502172}
   m_Layer: 0
   m_Name: wheelChair
   m_TagString: Untagged
@@ -968,7 +970,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1631560062810332}
   m_LocalRotation: {x: 0.94081354, y: -0, z: 0.33892483, w: 0}
-  m_LocalPosition: {x: -1.5276438, y: 0.075404346, z: -3.040027}
+  m_LocalPosition: {x: -1.494, y: 0.071, z: -3.081}
   m_LocalScale: {x: 0.29804265, y: 0.29804283, z: 0.29804283}
   m_Children: []
   m_Father: {fileID: 4442989876604598}
@@ -994,7 +996,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1476454391828206}
   m_LocalRotation: {x: -0, y: 0.037897874, z: -0, w: 0.99928164}
-  m_LocalPosition: {x: 0.8, y: -2.97, z: 1.28}
+  m_LocalPosition: {x: 0.35, y: -2.97, z: 1.31}
   m_LocalScale: {x: 0.5436492, y: 0.5436494, z: 0.5436492}
   m_Children:
   - {fileID: 4150266587746628}
@@ -2436,7 +2438,7 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1230509093191398}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
@@ -2457,8 +2459,8 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64767749655667252
-MeshCollider:
+--- !u!65 &65112727465202906
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -2467,10 +2469,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65133501383417824
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3467,6 +3467,21 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114059175264502172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1476454391828206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13ed44285885d9428a9c6bd317c88cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectMultiplier: 0.12
+  m_EffectBuildupDuratation: 1
+  m_Renderers: []
+  m_WarpSpace: 1
 --- !u!114 &114072809213545232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3538,6 +3553,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a42a9fe1c182f49b346fd9a5081bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114178598925398612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099886704961848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13ed44285885d9428a9c6bd317c88cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectMultiplier: 0.15
+  m_EffectBuildupDuratation: 1
+  m_Renderers: []
+  m_WarpSpace: 1
 --- !u!114 &114194387986035174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3633,7 +3663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateTowardsPlayer: 1
   rotationSpeed: 10
-  followSpeed: 70
+  followSpeed: 150
   detachRange: 5
   distanceFromPlayer: 3.5
   maxHeight: 10
@@ -3761,7 +3791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateTowardsPlayer: 1
   rotationSpeed: 10
-  followSpeed: 70
+  followSpeed: 150
   detachRange: 5
   distanceFromPlayer: 3.5
   maxHeight: 10
@@ -3945,7 +3975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateTowardsPlayer: 1
   rotationSpeed: 10
-  followSpeed: 70
+  followSpeed: 150
   detachRange: 5
   distanceFromPlayer: 3.5
   maxHeight: 10

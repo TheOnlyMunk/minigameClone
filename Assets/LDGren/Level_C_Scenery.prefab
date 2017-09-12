@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 114644049090470020}
   - component: {fileID: 114760075886691082}
   - component: {fileID: 65706625264520128}
+  - component: {fileID: 114946848586516024}
   m_Layer: 0
   m_Name: alien
   m_TagString: Untagged
@@ -3858,7 +3859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateTowardsPlayer: 1
   rotationSpeed: 30
-  followSpeed: 70
+  followSpeed: 150
   detachRange: 5
   distanceFromPlayer: 3.5
   maxHeight: 10
@@ -3931,3 +3932,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fea6f8eea666334aaf9869ad8f7bcda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114946848586516024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259199139934126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13ed44285885d9428a9c6bd317c88cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectMultiplier: 0.005
+  m_EffectBuildupDuratation: 1
+  m_Renderers: []
+  m_WarpSpace: 1
