@@ -77,4 +77,9 @@ public class PlaySound : MonoBehaviour
         //Starts the sound source
         m_Audio.Play();
     }
+
+	//Static function to allow us to play a track from chosen source
+	public static void PlayAudioFromChosenTrack(AudioSource source){
+		source.Play();
+	}
 }
