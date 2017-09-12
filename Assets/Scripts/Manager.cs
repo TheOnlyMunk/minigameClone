@@ -9,6 +9,9 @@ public class Manager : MonoBehaviour {
     [SerializeField]
     int m_TextNumberTarget = 1;
 
+    [SerializeField]
+    GameObject m_ObjectToEnable;
+
     int m_EnabledTexts;
 
 	void Awake(){
@@ -40,5 +43,6 @@ public class Manager : MonoBehaviour {
     void DoStuff()
     {
         Debug.Log("Stuff was done!");
+        m_ObjectToEnable.SetActive(true);
     }
 }
