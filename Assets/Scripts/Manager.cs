@@ -6,17 +6,39 @@ public class Manager : MonoBehaviour {
     [SerializeField] private GameObject cam;
 	[SerializeField] public GameObject pickedUpObject;
 
+    [SerializeField]
+    int m_TextNumberTarget = 1;
+
+    int m_EnabledTexts;
+
 	void Awake(){
 		Instantiate(cam);
 	}
 
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        m_EnabledTexts = 0;
+    }
+
+    public void IncrementTextEnableCounter()
+    {
+        ++m_EnabledTexts;
+
+        if (m_EnabledTexts == m_TextNumberTarget)
+        {
+            DoStuff();
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    void DoStuff()
+    {
+        Debug.Log("Stuff was done!");
+    }
 }
