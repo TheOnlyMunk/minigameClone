@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4318860672763436}
   - component: {fileID: 95027591053406438}
+  - component: {fileID: 114569080351923776}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Untagged
@@ -222,3 +223,16 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114569080351923776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1303597711788522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b4640856830994fa7c821ef61c0da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneName: StartMenu
+  m_Delay: 1
