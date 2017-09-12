@@ -1,17 +1,15 @@
 fileFormatVersion: 2
-guid: 57686413bd8c50844a1b83552a696d4c
-timeCreated: 1504870743
+guid: b74ded156522dd34d9d591410c0d70e1
+timeCreated: 1505211607
 licenseType: Pro
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
-    100002: brickPickUp
     400000: //RootNode
-    400002: brickPickUp
-    2300000: brickPickUp
-    3300000: brickPickUp
-    4300000: brickPickUp
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pillow
     9500000: //RootNode
   materials:
     importMaterials: 1
