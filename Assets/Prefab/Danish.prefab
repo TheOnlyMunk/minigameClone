@@ -156,11 +156,11 @@ GameObject:
   - component: {fileID: 114370701926670300}
   - component: {fileID: 114629696851090220}
   - component: {fileID: 65332871384095284}
-  - component: {fileID: 114613597474503850}
   - component: {fileID: 225594842659092694}
   - component: {fileID: 114101112135121538}
   - component: {fileID: 82912924645649528}
   - component: {fileID: 114579382749274826}
+  - component: {fileID: 114600075662130938}
   m_Layer: 5
   m_Name: SelectionSliderNytSpil
   m_TagString: Untagged
@@ -180,11 +180,11 @@ GameObject:
   - component: {fileID: 114875170241110794}
   - component: {fileID: 114391117496158602}
   - component: {fileID: 65976955103400288}
-  - component: {fileID: 114091808840599020}
   - component: {fileID: 225779716042754652}
   - component: {fileID: 114115103642070700}
   - component: {fileID: 82029207330657236}
   - component: {fileID: 114775445563490244}
+  - component: {fileID: 114502538140567722}
   m_Layer: 5
   m_Name: SelectionSliderSprog
   m_TagString: Untagged
@@ -297,7 +297,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1999774458181726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224352506276004210}
@@ -502,32 +502,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114091808840599020
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1504540195193550}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3138a0d76dfdea846a0a250e0c262f75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Duration: 1
-  m_Audio: {fileID: 82029207330657236}
-  m_OnOverClip: {fileID: 8300000, guid: 2bd66143af0efeb4e884e4273d2ed956, type: 3}
-  m_OnFilledClip: {fileID: 8300000, guid: 9f9d2c4dc4b50704bbf83a0e84e35936, type: 3}
-  m_Slider: {fileID: 114528595173606232}
-  m_InteractiveItem: {fileID: 114391117496158602}
-  m_VRInput: {fileID: 0}
-  m_BarCanvas: {fileID: 1504540195193550}
-  m_Renderer: {fileID: 0}
-  m_SelectionRadial: {fileID: 0}
-  m_UIFader: {fileID: 0}
-  m_Collider: {fileID: 65976955103400288}
-  m_DisableOnBarFill: 0
-  m_DisappearOnBarFill: 0
-  m_BarFilled: 0
 --- !u!114 &114101112135121538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -754,6 +728,32 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Sprog: '
+--- !u!114 &114502538140567722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504540195193550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b431463e7cf9074484a2047cbcb68d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Duration: 2
+  m_Audio: {fileID: 82029207330657236}
+  m_OnOverClip: {fileID: 8300000, guid: 2bd66143af0efeb4e884e4273d2ed956, type: 3}
+  m_OnFilledClip: {fileID: 8300000, guid: 9f9d2c4dc4b50704bbf83a0e84e35936, type: 3}
+  m_Slider: {fileID: 114528595173606232}
+  m_InteractiveItem: {fileID: 114391117496158602}
+  m_VRInput: {fileID: 0}
+  m_BarCanvas: {fileID: 1504540195193550}
+  m_Renderer: {fileID: 0}
+  m_SelectionRadial: {fileID: 0}
+  m_UIFader: {fileID: 0}
+  m_Collider: {fileID: 65976955103400288}
+  m_DisableOnBarFill: 0
+  m_DisappearOnBarFill: 0
+  m_BarFilled: 0
 --- !u!114 &114528595173606232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -873,21 +873,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53259f552e3492d41a2668f970098307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsFilled: 0
   TimeTillSelected: 1
   m_InteractiveItem: {fileID: 114629696851090220}
---- !u!114 &114613597474503850
+--- !u!114 &114600075662130938
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1335321416215782}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3138a0d76dfdea846a0a250e0c262f75, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b431463e7cf9074484a2047cbcb68d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Duration: 3
+  m_Duration: 2
   m_Audio: {fileID: 82912924645649528}
   m_OnOverClip: {fileID: 8300000, guid: 2bd66143af0efeb4e884e4273d2ed956, type: 3}
   m_OnFilledClip: {fileID: 8300000, guid: 9f9d2c4dc4b50704bbf83a0e84e35936, type: 3}
@@ -999,7 +998,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53259f552e3492d41a2668f970098307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsFilled: 0
   TimeTillSelected: 1
   m_InteractiveItem: {fileID: 114391117496158602}
 --- !u!114 &114875170241110794
