@@ -581,7 +581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1625649828116058
 GameObject:
   m_ObjectHideFlags: 1
@@ -1332,7 +1332,7 @@ Transform:
   m_GameObject: {fileID: 1702560618646928}
   m_LocalRotation: {x: -0, y: 0.2588191, z: -0, w: 0.9659258}
   m_LocalPosition: {x: -0.5529999, y: 0.38, z: -0.51}
-  m_LocalScale: {x: 3, y: 0.93397176, z: 0.049999997}
+  m_LocalScale: {x: 2.3846974, y: 0.93397176, z: 0.049999997}
   m_Children: []
   m_Father: {fileID: 4858076758947442}
   m_RootOrder: 2
@@ -1849,7 +1849,7 @@ Transform:
   m_GameObject: {fileID: 1232661531319410}
   m_LocalRotation: {x: -0, y: 0.2588191, z: -0, w: 0.9659258}
   m_LocalPosition: {x: -0.553, y: 1.647, z: -0.51}
-  m_LocalScale: {x: 3, y: 0.73025507, z: 0.049999997}
+  m_LocalScale: {x: 2.3846974, y: 0.73025507, z: 0.049999997}
   m_Children: []
   m_Father: {fileID: 4858076758947442}
   m_RootOrder: 3
@@ -2023,7 +2023,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7728a4dbfa5062d499d105d8c4fbf114, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2183,7 +2183,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 34ca112319c0a214ca6d40ca870eec2c, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2215,7 +2215,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 836659f859df130409b269c4abd3d7fd, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2471,7 +2471,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f7bbbd181d5ed2b48a558a9f11138134, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2631,7 +2631,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9434eb4b445c8af49a3982233db8b21f, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2663,7 +2663,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 102b596e3815fe346952eab142bfe7f4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2727,7 +2727,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 62c57418d8002554aa57a2a4456712f4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2887,7 +2887,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e2607fb25e427c643a3901290ef6afef, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2951,7 +2951,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ba0eaa767fa64ca40823dcb0fa51b561, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3048,7 +3048,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 553d3da2383265643b7d3f40774afa8c, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3080,7 +3080,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d8c5daa0494d2ee48911db9672702e5d, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3176,7 +3176,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4d94c3c47ec6b5e40ab784cb6b4f10b4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3432,7 +3432,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c334a9298f61d2345b4713955dc66ac3, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3933,8 +3933,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.35, z: 0.1}
-  m_Center: {x: 0.1, y: 0.1, z: 0}
+  m_Size: {x: 0.4, y: 0.5, z: 0.1}
+  m_Center: {x: 0.025, y: 0.02, z: 0}
 --- !u!95 &95145880012667512
 Animator:
   serializedVersion: 3
@@ -4303,12 +4303,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806a7bddbd17bce42bfa1c8c47aee4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ShakeDirection: 0
   m_Camera: {fileID: 0}
   m_InitiateGestureThreashold: 3
   m_MinimumShakeSize: 4
   m_MaxGestureRecordingTime: 0.1
   m_SamplesPerSecond: 100
-  m_Renderer: {fileID: 0}
 --- !u!114 &114825052521950664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4331,13 +4331,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c0c26a9e91eee43aad0cc8dcbd781f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Follow: 0
   rotateTowardsPlayer: 1
   rotationSpeed: 30
   followSpeed: 35
   detachRange: 0.5
   distanceFromPlayer: 0.7
-  shakeHeadCooldown: 1
   maxHeight: 10
   m_camera: {fileID: 0}
   followObject: {fileID: 0}
