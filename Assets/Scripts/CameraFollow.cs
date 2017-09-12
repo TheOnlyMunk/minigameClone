@@ -21,15 +21,18 @@ public class CameraFollow : MonoBehaviour {
 	public float maxHeight = 10f;
 	private static bool inDropZone; 
 
-	private bool canFollow = true;
-	private Manager gameManager;
+	private AudioSource audioSource;
 
+	public AudioClip pickUpSound;
 
 	[SerializeField] private Transform m_camera;
 	public Transform followObject;
 	private Rigidbody followRigid;
+	private bool canFollow = true;
 
 	private Vector3 endPoint;
+
+	private Manager gameManager;
 
 	static public CameraFollow instance; 
 
@@ -45,6 +48,7 @@ public class CameraFollow : MonoBehaviour {
 		followRigid = this.gameObject.transform.GetComponent<Rigidbody> ();
 		followObject = this.gameObject.transform;
 		gameManager = GameObject.FindObjectOfType (typeof(Manager)) as Manager;
+		audioSource = this.GetComponent<AudioSource> ();
 	}
 		
 
@@ -61,13 +65,14 @@ public class CameraFollow : MonoBehaviour {
 
     private void Selected()
     {
-		// make sure the object cannot be selected right after a headshake and while it following
+		// check if there is already an object that is picked up
 		if (gameManager.pickedUpObject != null) {
 			canFollow = false;
 		} else {
 			canFollow = true;
 		}
 
+		// make sure the object cannot be selected right after a headshake and while it following
 		if (canSelect && !m_Follow && canFollow) {
 			// set gravity of follow object to false, so this won't be taken into account when following
 			followRigid.useGravity = false;
@@ -76,6 +81,13 @@ public class CameraFollow : MonoBehaviour {
 
 			// Start a coroutine to make the object follow the camera movement
 			m_Following = StartCoroutine (Following ());
+		
+			//Play sound for picked up object from the attached source
+			if (audioSource!= null) {
+				if (audioSource.clip != null) {
+					PlaySound.PlayAudioFromChosenTrack (audioSource);
+				}
+			}
 		}
     }
 		
