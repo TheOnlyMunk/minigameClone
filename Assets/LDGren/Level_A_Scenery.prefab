@@ -198,8 +198,9 @@ GameObject:
   - component: {fileID: 64161855598377854}
   - component: {fileID: 23408749813268050}
   - component: {fileID: 82673874984444058}
+  - component: {fileID: 114143780739653066}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Windowsmash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4952,6 +4953,18 @@ MonoBehaviour:
   m_EffectBuildupDuratation: 1
   m_Renderers: []
   m_WarpSpace: 1
+--- !u!114 &114143780739653066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132088372575306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead46f5b5822d074cbeee8b83e18bfd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AudioClip: {fileID: 8300000, guid: abaa572222381254d96a3b3df4f967f9, type: 3}
 --- !u!114 &114144565314213780
 MonoBehaviour:
   m_ObjectHideFlags: 1
