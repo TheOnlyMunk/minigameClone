@@ -10,6 +10,12 @@ public class TextureLiquify : MonoBehaviour
         public static readonly int _Intensity = Shader.PropertyToID("_Intensity");
     }
 
+    public enum WarpSpace
+    {
+        Texturespace,
+        Worldspace
+    }
+
     Shader m_Shader;
     Shader shader
     {
@@ -33,6 +39,9 @@ public class TextureLiquify : MonoBehaviour
 
     [SerializeField]
     MeshRenderer[] m_Renderers;
+
+    [SerializeField]
+    WarpSpace m_WarpSpace;
 
     VRStandardAssets.Utils.VRInteractiveItem m_InteractiveItem;
 
@@ -135,6 +144,15 @@ public class TextureLiquify : MonoBehaviour
         for (int i = 0; i < m_Renderers.Length; ++i)
         {
             m_Renderers[i].material = m_WarpMaterials[i];
+
+            if (m_WarpSpace == WarpSpace.Worldspace)
+            {
+                m_Renderers[i].material.EnableKeyword("WARP_VERTEX_SPACE");
+            }
+            else
+            {
+                m_Renderers[i].material.DisableKeyword("WARP_VERTEX_SPACE");
+            }
         }
 
         // Move the effect intensity closer to the target.

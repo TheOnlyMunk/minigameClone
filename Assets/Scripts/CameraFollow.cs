@@ -107,8 +107,8 @@ public class CameraFollow : MonoBehaviour {
 				followRigid.AddForce ((endPoint - followObject.transform.position) * followSpeed);
 
 			}else {
-				Deselect ();
-				//m_Follow = false;
+				//Deselect ();
+				m_Follow = false;
 			}
 				
             // Wait until next frame.
@@ -125,7 +125,7 @@ public class CameraFollow : MonoBehaviour {
         }
     }
 
-	void OnTriggerEnter(Collider other) {
+	/*void OnTriggerEnter(Collider other) {
 		if (other.tag == "Dropzone") {
 			print ("in dropzone");
 			inDropZone = true;
@@ -136,14 +136,14 @@ public class CameraFollow : MonoBehaviour {
 			print ("outside dropzone");
 			inDropZone = false;
 		}
-	}
+	}*/
 
 	// Drops the object
 	public static void Deselect(){
-		if (inDropZone) {
+		//if (inDropZone) {
 			instance.StartCoroutine ("CoolDown");
 			CameraFollow.m_Follow = false;
-		}
+		//}
 	}
 		
 
