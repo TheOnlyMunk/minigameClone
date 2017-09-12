@@ -53,5 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1973228118285126, guid: b20549d6a6fb0884ebec9b052418dd73, type: 2}
   pickedUpObject: {fileID: 0}
-  m_TextNumberTarget: 11
+  m_TextNumberTarget: 4
   m_ObjectToEnable: {fileID: 0}
