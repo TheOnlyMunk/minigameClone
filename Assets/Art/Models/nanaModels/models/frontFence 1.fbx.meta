@@ -1,22 +1,27 @@
 fileFormatVersion: 2
-guid: c2950cc57377a334785b4109d9e65cd3
-timeCreated: 1505207598
+guid: df1d6a6434c0e9049acfe54e960a6006
+timeCreated: 1505209700
 licenseType: Pro
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: down
     100002: //RootNode
-    100004: upper
+    100004: takeOffBoard
+    100006: upper
     400000: down
     400002: //RootNode
-    400004: upper
+    400004: takeOffBoard
+    400006: upper
     2300000: down
-    2300002: upper
+    2300002: takeOffBoard
+    2300004: upper
     3300000: down
-    3300002: upper
-    4300000: upper
-    4300002: down
+    3300002: takeOffBoard
+    3300004: upper
+    4300000: takeOffBoard
+    4300002: upper
+    4300004: down
     9500000: //RootNode
   materials:
     importMaterials: 1
