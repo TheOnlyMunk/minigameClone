@@ -221,6 +221,84 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 969e366cd839b554da914356c8a6e84a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &777839956
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4963011841258158, guid: c1dd673f9e10ef04f9fe958bef15eae2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.14258528
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963011841258158, guid: c1dd673f9e10ef04f9fe958bef15eae2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.0747585
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963011841258158, guid: c1dd673f9e10ef04f9fe958bef15eae2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.08659311
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963011841258158, guid: c1dd673f9e10ef04f9fe958bef15eae2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963011841258158, guid: c1dd673f9e10ef04f9fe958bef15eae2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963011841258158, guid: c1dd673f9e10ef04f9fe958bef15eae2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963011841258158, guid: c1dd673f9e10ef04f9fe958bef15eae2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4963011841258158, guid: c1dd673f9e10ef04f9fe958bef15eae2, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404481830038390, guid: c1dd673f9e10ef04f9fe958bef15eae2, type: 2}
+      propertyPath: m_Name
+      value: Sounds
+      objectReference: {fileID: 0}
+    - target: {fileID: 82528102306635616, guid: c1dd673f9e10ef04f9fe958bef15eae2,
+        type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82142432855240040, guid: c1dd673f9e10ef04f9fe958bef15eae2,
+        type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82528102306635616, guid: c1dd673f9e10ef04f9fe958bef15eae2,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b6c71a643db047147891502bc5e0de5e, type: 3}
+    - target: {fileID: 82142432855240040, guid: c1dd673f9e10ef04f9fe958bef15eae2,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b42e211d6dd2bd54c981f2fb351706aa, type: 3}
+    - target: {fileID: 82528102306635616, guid: c1dd673f9e10ef04f9fe958bef15eae2,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243886279556032594, guid: a6105af69b8317d4989056a6be49ec95,
+        type: 2}
+    - target: {fileID: 82142432855240040, guid: c1dd673f9e10ef04f9fe958bef15eae2,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243352279961585566, guid: a6105af69b8317d4989056a6be49ec95,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c1dd673f9e10ef04f9fe958bef15eae2, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &800207369 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1267174934685602, guid: 68a1990850306d347898100d9cb0f536,
@@ -430,6 +508,11 @@ Prefab:
       propertyPath: m_Manager
       value: 
       objectReference: {fileID: 959279770}
+    - target: {fileID: 82673874984444058, guid: 68a1990850306d347898100d9cb0f536,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68a1990850306d347898100d9cb0f536, type: 2}
   m_IsPrefabParent: 0
@@ -480,6 +563,11 @@ Prefab:
     - target: {fileID: 1473624520061554, guid: f89f546189c35224fa72fab53d542d26, type: 2}
       propertyPath: m_Name
       value: SpiderTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 82342100906285076, guid: f89f546189c35224fa72fab53d542d26,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f89f546189c35224fa72fab53d542d26, type: 2}
