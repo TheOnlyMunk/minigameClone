@@ -20,13 +20,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4318860672763436}
   - component: {fileID: 95027591053406438}
+  - component: {fileID: 114569080351923776}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1523696619414766
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1792174008126458}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.622, z: 0}
+  m_LocalPosition: {x: 0, y: -0.409, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4318860672763436}
@@ -81,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523696619414766}
   m_LocalRotation: {x: 0.39568174, y: 0, z: -0.9183877, w: 0}
-  m_LocalPosition: {x: 0, y: 2.21, z: 0}
+  m_LocalPosition: {x: 0, y: 3.431, z: 0}
   m_LocalScale: {x: 0.13228494, y: 0.13228494, z: 0.13228494}
   m_Children: []
   m_Father: {fileID: 4318860672763436}
@@ -94,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1303597711788522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.716, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4016014287835348}
@@ -183,7 +184,7 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 2.51
+  m_Range: 6.74
   m_SpotAngle: 118
   m_CookieSize: 10
   m_Shadows:
@@ -222,3 +223,16 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114569080351923776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1303597711788522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b4640856830994fa7c821ef61c0da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneName: StartMenu
+  m_Delay: 1

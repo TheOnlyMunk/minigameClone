@@ -1090,7 +1090,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Game
+  m_Text: Play
 --- !u!222 &222168949346175600
 CanvasRenderer:
   m_ObjectHideFlags: 1
