@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(VRStandardAssets.Utils.EyeSelect))]
-public class EnableDisableTrigger : MonoBehaviour {
-
-    // GitHub check, doest it come back
+public class EnableDisableTrigger : MonoBehaviour
+{
 
     private VRStandardAssets.Utils.EyeSelect m_EyeSelect;
 
@@ -29,7 +28,14 @@ public class EnableDisableTrigger : MonoBehaviour {
     private GameObject ObjectToEnableOrDisable;
     [SerializeField]
     private State state;
-    [SerializeField] public enum State { Enable, Disable};
+    [SerializeField]
+    public enum State { Enable, Disable };
+    [SerializeField]
+    [Range(0, 5)]
+    public float Delay;
+    [Tooltip("Disables this object once it have been used")]
+    [SerializeField]
+    private bool DisableAfterUse;
 
     private void OnEnable()
     {
@@ -40,8 +46,8 @@ public class EnableDisableTrigger : MonoBehaviour {
         {
             case Activation.Looking:
                 m_EyeSelect = this.GetComponent<VRStandardAssets.Utils.EyeSelect>();
-                if(InitialLook)     m_EyeSelect.OnSelection += EnableDisable;
-                if(SelectedLook)    m_EyeSelect.OnSelected += EnableDisable;
+                if (InitialLook) m_EyeSelect.OnSelection += EnableDisable;
+                if (SelectedLook) m_EyeSelect.OnSelected += EnableDisable;
                 break;
             case Activation.EnterArea:
                 TriggerDetection.GetComponent<EventTriggerDetection>().OnTriggerDetection += EnableDisable;
@@ -74,6 +80,14 @@ public class EnableDisableTrigger : MonoBehaviour {
 
     private void EnableDisable()
     {
+        StartCoroutine(WaitBeforeEnableDisable(Delay));
+
+    }
+
+    IEnumerator WaitBeforeEnableDisable(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
         switch (state)
         {
             case State.Disable:
@@ -84,6 +98,11 @@ public class EnableDisableTrigger : MonoBehaviour {
                 ObjectToEnableOrDisable.SetActive(true);
                 break;
         }
+
+        if (DisableAfterUse)
+            this.gameObject.SetActive(false);
+
+        yield return null;
     }
 
 }
