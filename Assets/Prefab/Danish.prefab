@@ -939,7 +939,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Nyt Spil
+  m_Text: Spil
 --- !u!114 &114579382749274826
 MonoBehaviour:
   m_ObjectHideFlags: 1
