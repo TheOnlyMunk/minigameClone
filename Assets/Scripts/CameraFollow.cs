@@ -21,6 +21,9 @@ public class CameraFollow : MonoBehaviour {
 	public float maxHeight = 10f;
 	private static bool inDropZone; 
 
+	private bool canFollow = true;
+	private Manager gameManager;
+
 
 	[SerializeField] private Transform m_camera;
 	public Transform followObject;
@@ -41,6 +44,7 @@ public class CameraFollow : MonoBehaviour {
 		// assign rigidbody and gameobject of the follow object
 		followRigid = this.gameObject.transform.GetComponent<Rigidbody> ();
 		followObject = this.gameObject.transform;
+		gameManager = GameObject.FindObjectOfType (typeof(Manager)) as Manager;
 	}
 		
 
@@ -58,7 +62,13 @@ public class CameraFollow : MonoBehaviour {
     private void Selected()
     {
 		// make sure the object cannot be selected right after a headshake and while it following
-		if (canSelect && !m_Follow) {
+		if (gameManager.pickedUpObject != null) {
+			canFollow = false;
+		} else {
+			canFollow = true;
+		}
+
+		if (canSelect && !m_Follow && canFollow) {
 			// set gravity of follow object to false, so this won't be taken into account when following
 			followRigid.useGravity = false;
 			// set the initial endpoint as the objects position, so it is certain that it won't be dropped because of detachRange
@@ -73,6 +83,7 @@ public class CameraFollow : MonoBehaviour {
     
     private IEnumerator Following()
     {
+		
         m_Follow = true;
         while (m_Follow)
         {
@@ -109,6 +120,7 @@ public class CameraFollow : MonoBehaviour {
 			}else {
 				//Deselect ();
 				m_Follow = false;
+				gameManager.pickedUpObject = null;
 			}
 				
             // Wait until next frame.
