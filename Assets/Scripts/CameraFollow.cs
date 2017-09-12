@@ -9,16 +9,17 @@ public class CameraFollow : MonoBehaviour {
 
     Coroutine m_Following;
 
-	public bool m_Follow;
-	private bool canSelect = true;
+	public static bool m_Follow;
+	private static bool canSelect = true;
     
 	public bool rotateTowardsPlayer = true;
 	public float rotationSpeed = 10.0f;
 	public float followSpeed = 10.0f;
 	public float detachRange = 5.0f;
 	public float distanceFromPlayer = 10f;
-	public float shakeHeadCooldown = 1f;
+	public static float shakeHeadCooldown = 1f;
 	public float maxHeight = 10f;
+	private static bool inDropZone; 
 
 
 	[SerializeField] private Transform m_camera;
@@ -26,6 +27,14 @@ public class CameraFollow : MonoBehaviour {
 	private Rigidbody followRigid;
 
 	private Vector3 endPoint;
+
+	static public CameraFollow instance; 
+
+	void Awake()
+	{
+		instance = this;
+	}
+
 
 	void Start(){
 		m_camera = Camera.main.transform;
@@ -98,6 +107,7 @@ public class CameraFollow : MonoBehaviour {
 				followRigid.AddForce ((endPoint - followObject.transform.position) * followSpeed);
 
 			}else {
+				//Deselect ();
 				m_Follow = false;
 			}
 				
@@ -114,6 +124,28 @@ public class CameraFollow : MonoBehaviour {
             yield break;
         }
     }
+
+	/*void OnTriggerEnter(Collider other) {
+		if (other.tag == "Dropzone") {
+			print ("in dropzone");
+			inDropZone = true;
+		}
+	}
+	void OnTriggerExit(Collider other) {
+		if (other.tag == "Dropzone") {
+			print ("outside dropzone");
+			inDropZone = false;
+		}
+	}*/
+
+	// Drops the object
+	public static void Deselect(){
+		//if (inDropZone) {
+			instance.StartCoroutine ("CoolDown");
+			CameraFollow.m_Follow = false;
+		//}
+	}
+		
 
 	// cooldown, so that a dropped object by headshake can't be picked up right away
 	public IEnumerator CoolDown()

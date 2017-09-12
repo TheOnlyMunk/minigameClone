@@ -5,11 +5,12 @@ using System;
 
 namespace VRStandardAssets.Utils
 {
-
+    [RequireComponent(typeof(VRStandardAssets.Utils.VRInteractiveItem))]
     public class EyeSelect : MonoBehaviour
     {
         public event Action OnSelected;
         public event Action OnSelection;
+		public event Action OnExit;
 
         public float TimeTillSelected = 4.0f;
 
@@ -24,6 +25,7 @@ namespace VRStandardAssets.Utils
 
         private void OnEnable()
         {
+            m_InteractiveItem = this.GetComponent<VRInteractiveItem>();
             m_InteractiveItem.OnOver += HandleOver;
             m_InteractiveItem.OnOut += HandleOut;
         }
@@ -42,6 +44,9 @@ namespace VRStandardAssets.Utils
             // If the coroutine has been started (and thus we have a reference to it) stop it.
             if (m_Selected != null)
                 StopCoroutine(m_Selected);
+
+			if (OnExit != null)
+				OnExit ();
         }
 
         private void HandleOver()
