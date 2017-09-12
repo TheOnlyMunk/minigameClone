@@ -56,6 +56,16 @@ public class LanguageManager : MonoBehaviour
                 language.gameObject.SetActive(false);
             }
         }
+
+        LangugaeTextSwap[] textSwapObjects = Resources.FindObjectsOfTypeAll(typeof(LangugaeTextSwap)) as LangugaeTextSwap[];
+
+        foreach (LangugaeTextSwap textSwap in textSwapObjects)
+        {
+            if (textSwap.GetLangugae() == m_Langugae)
+            {
+                textSwap.DoSwap();
+            }
+        }
     }
 
     public void SetLanguage(Language language)
