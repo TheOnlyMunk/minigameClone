@@ -61,6 +61,9 @@ public class CameraFollow : MonoBehaviour {
     private void OnDisable()
     {
 		m_EyeSelect.OnSelection -= Selected;
+
+        // Deselect this object so that other objects can be picked up.
+        Deselect();
     }
 
     private void Selected()
