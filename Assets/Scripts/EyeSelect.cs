@@ -5,7 +5,7 @@ using System;
 
 namespace VRStandardAssets.Utils
 {
-
+    [RequireComponent(typeof(VRStandardAssets.Utils.VRInteractiveItem))]
     public class EyeSelect : MonoBehaviour
     {
         public event Action OnSelected;
@@ -25,6 +25,7 @@ namespace VRStandardAssets.Utils
 
         private void OnEnable()
         {
+            m_InteractiveItem = this.GetComponent<VRInteractiveItem>();
             m_InteractiveItem.OnOver += HandleOver;
             m_InteractiveItem.OnOut += HandleOut;
         }
