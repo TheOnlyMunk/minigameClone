@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 44768e931db8671469e477704da94104
+timeCreated: 1504701906
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: KBYoureJustMyTypeThin
+  fontNames:
+  - KBYoureJustMyTypeThin
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
