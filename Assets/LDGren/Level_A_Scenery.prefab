@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 114558632343332762}
   - component: {fileID: 114033386757798830}
   - component: {fileID: 114972535305774988}
+  - component: {fileID: 114223192174057252}
   m_Layer: 0
   m_Name: dollHouse
   m_TagString: Untagged
@@ -2274,8 +2275,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1135598294779794}
   m_LocalRotation: {x: -0, y: -0.002046585, z: -0, w: 0.999998}
-  m_LocalPosition: {x: -0.0827, y: 0.030581927, z: 0.0008}
-  m_LocalScale: {x: 0.14383207, y: 0.14383198, z: 0.011139656}
+  m_LocalPosition: {x: -0.0827, y: 0.0324, z: 0.0008}
+  m_LocalScale: {x: 0.16947508, y: 0.16947496, z: 0.013125682}
   m_Children: []
   m_Father: {fileID: 4271966084480636}
   m_RootOrder: 4
@@ -5760,6 +5761,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Language: 1
+--- !u!114 &114223192174057252
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1135598294779794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13ed44285885d9428a9c6bd317c88cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectMultiplier: 0.01
+  m_EffectBuildupDuratation: 1
+  m_Renderers: []
+  m_WarpSpace: 1
 --- !u!114 &114267291551825098
 MonoBehaviour:
   m_ObjectHideFlags: 1
