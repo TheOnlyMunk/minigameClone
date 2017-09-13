@@ -34,7 +34,10 @@ public class CameraFollow : MonoBehaviour {
 
 	private Manager gameManager;
 
-	static public CameraFollow instance; 
+	static public CameraFollow instance;
+
+    [SerializeField]
+    Vector3 m_RotationOffset;
 
 	void Awake()
 	{
@@ -123,7 +126,13 @@ public class CameraFollow : MonoBehaviour {
 
 				if (rotateTowardsPlayer) {
 					float step = rotationSpeed * Time.deltaTime;
-					transform.rotation = Quaternion.RotateTowards(transform.rotation, m_camera.transform.rotation, step);
+
+                    Quaternion targetRotation = m_camera.transform.rotation;
+                    targetRotation *= Quaternion.Euler(m_RotationOffset);
+
+                    Debug.Log(m_RotationOffset);
+
+					transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
 				}
 
 				// Addforce stuff
