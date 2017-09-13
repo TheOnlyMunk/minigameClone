@@ -4320,7 +4320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateTowardsPlayer: 1
-  rotationSpeed: 10
+  rotationSpeed: 100
   followSpeed: 150
   detachRange: 5
   distanceFromPlayer: 3.5
@@ -4461,7 +4461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateTowardsPlayer: 1
-  rotationSpeed: 10
+  rotationSpeed: 100
   followSpeed: 150
   detachRange: 5
   distanceFromPlayer: 3.5
@@ -4698,7 +4698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateTowardsPlayer: 1
-  rotationSpeed: 10
+  rotationSpeed: 100
   followSpeed: 150
   detachRange: 5
   distanceFromPlayer: 3.5
