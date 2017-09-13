@@ -17,7 +17,7 @@ public class CustomSelectionSlider : MonoBehaviour
     [SerializeField] private float m_Duration = 2f;                     // The length of time it takes for the bar to fill.
     [SerializeField] private AudioSource m_Audio;                       // Reference to the audio source that will play effects when the user looks at it and when it fills.
     [SerializeField] private AudioClip m_OnOverClip;                    // The clip to play when the user looks at the bar.
-    [SerializeField] private AudioClip m_OnFilledClip;                  // The clip to play when the bar finishes filling.
+    //[SerializeField] private AudioClip m_OnFilledClip;                  // The clip to play when the bar finishes filling.
     [SerializeField] private Slider m_Slider;                           // Optional reference to the UI slider (unnecessary if using a standard Renderer).
     [SerializeField] private VRInteractiveItem m_InteractiveItem;       // Reference to the VRInteractiveItem to determine when to fill the bar.
     [SerializeField] private VRInput m_VRInput;                         // Reference to the VRInput to detect button presses.
@@ -129,8 +129,8 @@ public class CustomSelectionSlider : MonoBehaviour
             OnBarFilled ();
 
         // Play the clip for when the bar is filled.
-        m_Audio.clip = m_OnFilledClip;
-        m_Audio.Play();
+        //m_Audio.clip = m_OnFilledClip;
+        //m_Audio.Play();
 
         // If the bar should be disabled once it is filled, do so now.
         if (m_DisableOnBarFill)
