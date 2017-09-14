@@ -752,7 +752,6 @@ MonoBehaviour:
   m_Duration: 2
   m_Audio: {fileID: 82149148387541308}
   m_OnOverClip: {fileID: 8300000, guid: 2bd66143af0efeb4e884e4273d2ed956, type: 3}
-  m_OnFilledClip: {fileID: 8300000, guid: 9f9d2c4dc4b50704bbf83a0e84e35936, type: 3}
   m_Slider: {fileID: 114564612356060230}
   m_InteractiveItem: {fileID: 114593606225246852}
   m_VRInput: {fileID: 0}
@@ -778,7 +777,6 @@ MonoBehaviour:
   m_Duration: 2
   m_Audio: {fileID: 82973072494278910}
   m_OnOverClip: {fileID: 8300000, guid: 2bd66143af0efeb4e884e4273d2ed956, type: 3}
-  m_OnFilledClip: {fileID: 8300000, guid: 9f9d2c4dc4b50704bbf83a0e84e35936, type: 3}
   m_Slider: {fileID: 114497318705404138}
   m_InteractiveItem: {fileID: 114788337206360490}
   m_VRInput: {fileID: 0}
